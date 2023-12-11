@@ -15,9 +15,14 @@ class Program
         List<int> Nums = new List<int>();
         int sum = 0;
 
-        System.Console.Write("Insert data:");
-        string input = "2rtjhvsvrmtwo1hgzpeightdjkhxhmseven7"; 
+        string input;
+        string result ="";
+        string[] lines = File.ReadAllLines("input.txt");
         char[] digitsArray = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+        for(int j=0; j<lines.Count();j++)
+        {
+            input=lines[j];
 
         for (int i = 0; i < input.Length; i++)
         {
@@ -28,12 +33,27 @@ class Program
             }
         }
 
-        string result = Nums.FirstOrDefault() + Nums.LastOrDefault().ToString();
+        if(Nums.Count>1){
+        result = Nums.FirstOrDefault() + Nums.LastOrDefault().ToString();
+        }
+        else if(Nums.Count==1)
+        {
+        result = Nums.First().ToString();
+        }
+        else{
+        result = "";
+        }
+
+        Nums.Clear();
 
         if (int.TryParse(result, out int parsedResult))
         {
             sum += parsedResult;
         }
+
+            System.Console.WriteLine($"Iteration: {j+1} Sum:{sum}");
+
+        }   //End of j
 
         System.Console.WriteLine($"{sum}");
 
