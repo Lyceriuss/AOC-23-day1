@@ -12,16 +12,30 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Make list for holding nums
-        //Hook to input
-        //Conditions to check for
-        //Add to numlist
-        //SortNumlist
-        //ConvertShenanigans
-        //add int to sum
+        List<int> Nums = new List<int>();
+        int sum = 0;
 
-        //repeat
-        
+        System.Console.Write("Insert data:");
+        string input = "2rtjhvsvrmtwo1hgzpeightdjkhxhmseven7"; 
+        char[] digitsArray = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (digitsArray.Contains(input[i]))
+            {
+                int digit = int.Parse(input[i].ToString());
+                Nums.Add(digit);
+            }
+        }
+
+        string result = Nums.FirstOrDefault() + Nums.LastOrDefault().ToString();
+
+        if (int.TryParse(result, out int parsedResult))
+        {
+            sum += parsedResult;
+        }
+
+        System.Console.WriteLine($"{sum}");
 
     }
 }
