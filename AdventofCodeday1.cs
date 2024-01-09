@@ -52,7 +52,7 @@ class Program
             }
             else if (nums.Count == 1)
             {
-                result = nums.First().ToString();
+                result = nums.First().ToString()+ nums.First().ToString();
             }
 
             nums.Clear();
@@ -62,7 +62,7 @@ class Program
                 sum += parsedResult;
             }
 
-            Console.WriteLine($"Iteration: {j + 1} Sum:{sum}");
+            Console.WriteLine($"Iteration: {j + 1} Value:{parsedResult} Sum:{sum}");
         }
 
         Console.WriteLine($"Total Sum: {sum}");
